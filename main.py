@@ -133,19 +133,35 @@ def final_array(pattern):
     return np.append(adding_to_arrays(verse1  , pattern , random.randint(6,12)),np.append(adding_to_arrays(chorus , pattern , random.randint(6,12)),np.append(adding_to_arrays(verse2 , pattern , random.randint(6,12)),np.append(adding_to_arrays(chorus , pattern , random.randint(6,12)),adding_to_arrays(verse3 , pattern , random.randint(6,12)),axis=1),axis=1),axis=1),axis=1)
 
 
+#if i want it to not work as well \_()_/
+# def adding_to_arrays(array, pattern, num_to_add):
+#         for _ in range(num_to_add):
+#             pat = pattern[random.randint(0,1)]
+#             starting_point = (random.randint(0, len(array) - 1), random.randint(0, len(array[0]) - 1))
+#             rows, cols = pat.shape
+#             rows_remaining = len(array) - starting_point[0]
+#             cols_remaining = len(array[0]) - starting_point[1]
+            
+#             # Slice the pattern to match the remaining space in the array
+#             pattern_slice = pat[:rows_remaining, :cols_remaining]
+            
+#             array[starting_point[0]:starting_point[0] + rows, starting_point[1]:starting_point[1] + cols] = pattern_slice
+#         return array
+
 def adding_to_arrays(array, pattern, num_to_add):
-        for _ in range(num_to_add):
-            pat = pattern[random.randint(0,1)]
-            starting_point = (random.randint(0, len(array) - 1), random.randint(0, len(array[0]) - 1))
-            rows, cols = pat.shape
-            rows_remaining = len(array) - starting_point[0]
-            cols_remaining = len(array[0]) - starting_point[1]
-            
-            # Slice the pattern to match the remaining space in the array
-            pattern_slice = pat[:rows_remaining, :cols_remaining]
-            
-            array[starting_point[0]:starting_point[0] + rows, starting_point[1]:starting_point[1] + cols] = pattern_slice
-        return array
+    for _ in range(num_to_add):
+        pat = pattern[random.randint(0,1)]
+        starting_point = (random.randint(0, len(array) - 1), random.randint(0, len(array[0]) - 1))
+        rows, cols = pat.shape
+        rows_remaining = len(array) - starting_point[0]
+        cols_remaining = len(array[0]) - starting_point[1]
+        
+        # Slice the pattern to match the remaining space in the array
+        pattern_slice = pat[:rows_remaining, :cols_remaining]
+        
+        array[starting_point[0]:starting_point[0] + rows, starting_point[1]:starting_point[1] + cols] = np.logical_or(
+            array[starting_point[0]:starting_point[0] + rows, starting_point[1]:starting_point[1] + cols] , pattern_slice)
+    return array
 
 check_press()
 
