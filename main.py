@@ -18,53 +18,104 @@ chorus = np.zeros(shape=(23,56) , dtype=int)
 #the original shapes
 #https://musiclab.chromeexperiments.com/Song-Maker/song/5547182859616256
 
+e_shape = np.array([[0,1,1,1,0],
+                    [1,0,0,0,1],
+                    [1,1,1,1,0],
+                    [1,0,0,0,0],
+                    [0,1,1,1,1]]
+                                )
+e_shape2 = np.array([[0,0,1,1,1,1,1,1,0,0],
+                    [0,0,1,1,1,1,1,1,0,0],
+                    [1,1,0,0,0,0,0,0,1,1],
+                    [1,1,0,0,0,0,0,0,1,1],
+                    [1,1,1,1,1,1,1,1,0,0],
+                    [1,1,1,1,1,1,1,1,0,0],
+                    [1,1,0,0,0,0,0,0,0,0],
+                    [1,1,0,0,0,0,0,0,0,0],
+                    [0,0,1,1,1,1,1,1,1,1],
+                    [0,0,1,1,1,1,1,1,1,1]]
+                                )
+i_shape = np.array([[1],
+                    [0],
+                    [1],
+                    [1],
+                    [1]]
+                        )
+i_shape2 = np.array([[1,1],
+                    [1,1],
+                    [0,0],
+                    [1,1],
+                    [1,1],
+                    [1,1],
+                    [1,1],
+                    [1,1],
+                    [1,1],
+                    [1,1],
+                    [1,1]]
+                        )
+pi_shape = np.array([[1,1,1,1,1,1,1,1],
+                    [0,0,1,0,0,1,0,0],
+                    [0,0,1,0,0,1,0,0],
+                    [0,0,1,0,0,1,0,0],
+                    [0,0,1,0,0,1,0,0],
+                    [0,0,1,0,0,0,1,0]]
+                                    )
+pi_shape2 = np.array([[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                    [0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0],
+                    [0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0],
+                    [0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0],
+                    [0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0],
+                    [0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0],
+                    [0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0],
+                    [0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0],
+                    [0,0,0,0,1,1,0,0,0,0,0,1,1,0,0,0],
+                    [0,0,0,0,1,1,0,0,0,0,0,0,1,1,0,0],]
+                                                        )
+ratio = np.array([[0,0,0,0,0,1,1,0,0],
+                [0,1,0,0,1,0,0,1,0],
+                [1,0,0,0,1,0,0,0,1],
+                [1,0,0,0,1,0,0,0,1],
+                [1,0,0,0,1,0,0,0,1],
+                [0,1,0,0,1,0,0,1,0],
+                [0,0,1,1,1,1,1,0,0],
+                [0,0,0,0,1,0,0,0,0],
+                [0,0,0,0,1,0,0,0,0],
+                [0,0,0,0,1,0,0,0,0],
+                [0,0,0,0,1,0,0,0,0]]
+                                    )
+ratio2 = np.array([[0,0,0,1,0,0,0],
+                [0,1,1,1,1,1,0],
+                [1,0,0,1,0,0,1],
+                [1,0,0,1,0,0,1],
+                [1,0,0,1,0,0,1],
+                [0,1,1,1,1,1,0],
+                [0,0,0,1,0,0,0]]
+                                )
 match constant:
     case "e":
-        pattern = np.array([[0,1,1,1,0],
-                                [1,0,0,0,1],
-                                [1,1,1,1,0],
-                                [1,0,0,0,0],
-                                [0,1,1,1,1]]
-                                ),
-        #1:np.array([]),
-        #2:np.array([])
+        pattern = {0: e_shape,
+                    1: e_shape2,
+                                2:np.array([])
+                                }
         
     case "i":
-        pattern = np.array([[1],
-                                [0],
-                                [1],
-                                [1],
-                                [1]]
-                                ),
-        #1:np.array([]),
-        #2:np.array([])
+        pattern = {0:i_shape,
+                    1:i_shape2,
+                                2:np.array([])
+                                }
         
     case "pi":
-        pattern = np.array([[1,1,1,1,1,1,1,1],
-                                [0,0,1,0,0,1,0,0],
-                                [0,0,1,0,0,1,0,0],
-                                [0,0,1,0,0,1,0,0],
-                                [0,0,1,0,0,1,0,0],
-                                [0,0,1,0,0,0,1,0]]
-                                ),
-        #1:np.array([]),
-        #2:np.array([])
+        pattern = {0:pi_shape,
+                    1:pi_shape2,
+                                2:np.array([])
+                                }
         
     case "ratio":
-        pattern = np.array([[0,0,0,0,0,1,1,0,0],
-                                [0,1,0,0,1,0,0,1,0],
-                                [1,0,0,0,1,0,0,0,1],
-                                [1,0,0,0,1,0,0,0,1],
-                                [1,0,0,0,1,0,0,0,1],
-                                [0,1,0,0,1,0,0,1,0],
-                                [0,0,1,1,1,1,1,0,0],
-                                [0,0,0,0,1,0,0,0,0],
-                                [0,0,0,0,1,0,0,0,0],
-                                [0,0,0,0,1,0,0,0,0],
-                                [0,0,0,0,1,0,0,0,0]]
-                                ),
-        #1:np.array([]),
-        #2:np.array([])
+        pattern = {0:ratio,
+                    1:ratio2,
+                                2:np.array([])
+                                }
         
     case _:
         sys.exit()
@@ -79,18 +130,19 @@ def check_press():
         listener.join()
 
 def final_array(pattern):
-    return np.append(adding_to_arrays(verse1  , pattern[0] , random.randint(6,12)),np.append(adding_to_arrays(chorus , pattern[0] , random.randint(6,12)),np.append(adding_to_arrays(verse2 , pattern[0] , random.randint(6,12)),np.append(adding_to_arrays(chorus , pattern[0] , random.randint(6,12)),adding_to_arrays(verse3 , pattern[0] , random.randint(6,12)),axis=1),axis=1),axis=1),axis=1)
+    return np.append(adding_to_arrays(verse1  , pattern , random.randint(6,12)),np.append(adding_to_arrays(chorus , pattern , random.randint(6,12)),np.append(adding_to_arrays(verse2 , pattern , random.randint(6,12)),np.append(adding_to_arrays(chorus , pattern , random.randint(6,12)),adding_to_arrays(verse3 , pattern , random.randint(6,12)),axis=1),axis=1),axis=1),axis=1)
 
 
 def adding_to_arrays(array, pattern, num_to_add):
         for _ in range(num_to_add):
+            pat = pattern[random.randint(0,1)]
             starting_point = (random.randint(0, len(array) - 1), random.randint(0, len(array[0]) - 1))
-            rows, cols = pattern.shape
+            rows, cols = pat.shape
             rows_remaining = len(array) - starting_point[0]
             cols_remaining = len(array[0]) - starting_point[1]
             
             # Slice the pattern to match the remaining space in the array
-            pattern_slice = pattern[:rows_remaining, :cols_remaining]
+            pattern_slice = pat[:rows_remaining, :cols_remaining]
             
             array[starting_point[0]:starting_point[0] + rows, starting_point[1]:starting_point[1] + cols] = pattern_slice
         return array
